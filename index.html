@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
     <title>My Website</title>
 </head>
 <body>
@@ -36,5 +40,44 @@
     </div>
   </body>
   <script src="anime.js"></script>
-  <script src="script.js"></script>
+  <script>
+    const button = document.querySelector('.button');
+
+const mouseHoverAnimation = () => {
+    anime({
+        targets: button,
+        width: '100%',
+        scale: {
+            delay: 800,
+            value: 1.5
+        },
+        duration: 1500
+    })
+}
+
+const mouseOutAnimation = () => {
+    anime({
+        targets: button,
+        width: '50%',
+        scale: {
+            delay: 800,
+            value: 1
+        },
+        duration: 1500
+    })
+}
+
+anime({
+    targets: '.youtube path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 1500,
+    direction: 'alternate',
+    loop: true
+})
+
+
+button.addEventListener('mouseover', mouseHoverAnimation)
+button.addEventListener('mouseout', mouseOutAnimation)
+  </script>
 </html>
